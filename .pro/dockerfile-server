@@ -1,0 +1,7 @@
+FROM openresty/openresty:alpine
+
+ENV TZ Asia/Tehran
+ENV PHP_FPM bar
+
+# If needed, you can customize the entry point.
+ENTRYPOINT ["nginx", "-g", "daemon off;"]

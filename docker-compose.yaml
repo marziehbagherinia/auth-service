@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  auth_app:
+    build:
+      context: .
+      dockerfile: ./.pro/dockerfile-app
+    container_name: auth-app
+    working_dir: /app
+    volumes:
+      - ./:/app
+
+  auth_service:
+    build:
+      context: .
+      dockerfile: ./.pro/dockerfile-server
+    container_name: auth-service
+    working_dir: /app
+    ports:
+      - "8232:80"
+    volumes:
+      - ./:/app
+      - ./.pro/server-nginx.conf:/etc/nginx/conf.d/default.conf
+
+networks:
+  default:
+    external:
+      name: local_network
