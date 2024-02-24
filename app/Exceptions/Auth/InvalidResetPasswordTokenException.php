@@ -5,7 +5,7 @@ namespace App\Exceptions\Auth;
 use App\Enums\ApiHttpStatus;
 use App\Exceptions\_Base\BaseException;
 
-class ResetPasswordLimitException extends BaseException
+class InvalidResetPasswordTokenException extends BaseException
 {
     /**
      * @return boolean
@@ -20,7 +20,7 @@ class ResetPasswordLimitException extends BaseException
      */
     public function getMessageBase(): mixed
     {
-        return trans( 'auth.password.reset.limit.error' );
+        return trans( 'auth.password.reset.token.invalid' );
     }
 
     /**
@@ -30,7 +30,7 @@ class ResetPasswordLimitException extends BaseException
      */
     public function getInternalCodeBase(): int|string
     {
-        return ApiHttpStatus::INTERNAL_SERVER_ERROR;
+        return ApiHttpStatus::VALIDATION;
     }
 
     /**
@@ -38,6 +38,6 @@ class ResetPasswordLimitException extends BaseException
      */
     public function getStatusCodeBase(): mixed
     {
-        return ApiHttpStatus::INTERNAL_SERVER_ERROR;
+        return ApiHttpStatus::VALIDATION;
     }
 }

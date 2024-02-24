@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V1\Auth\LoginController;
+use App\Http\Controllers\Api\V1\Auth\LogoutController;
 use App\Http\Controllers\Api\V1\Auth\RegisterController;
 use App\Http\Controllers\Api\V1\Auth\VerifyTokenController;
+use App\Http\Controllers\Api\V1\Auth\ForgotPasswordController;
+use App\Http\Controllers\Api\V1\Auth\ResetPasswordController;
 use App\Http\Controllers\Api\V1\Users\UpdateUserController;
 use App\Http\Controllers\Api\V1\Users\CheckUserRolesController;
 use App\Http\Controllers\Api\V1\Users\CheckUserPermissionsController;
@@ -23,6 +26,9 @@ Route::group( [ 'prefix' => 'v1' ], function ()
 {
     Route::post( 'register', RegisterController::class );
     Route::post( 'login', LoginController::class );
+    Route::post( 'logout', LogoutController::class );
+    Route::post( '/password/forgot', ForgotPasswordController::class );
+    Route::post( '/password/reset', ResetPasswordController::class );
 
     Route::group( [ 'middleware' => 'auth:sanctum' ], function ()
     {
