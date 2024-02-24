@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Api\V1\Auth;
 
-use App\Models\Users\User;
 use App\Enums\Users\UserTokenType;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\Api\Auth\LoginRequest;
 use App\Exceptions\Users\UserNotFoundException;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\V1\Auth\LoginRequest;
+use App\Models\Users\User;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -31,12 +31,19 @@ class LoginController extends Controller
 
         if ( !Hash::check( $inputs[ 'password' ], $user->password ) )
         {
-            return response()->error( trans( 'auth.login.password.incorrect' ) );
+            return response()->json( [
+                'message' => trans( 'auth.login.password.incorrect' ),
+                'status' => 400,
+            ] );
         }
 
         $token = $user->createToken( UserTokenType::AUTH );
 
-        return response()->success( trans( 'auth.login.success' ), [ "token" => $token->plainTextToken ] );
+        return response()->json( [
+            'message' => trans( 'auth.login.success' ),
+            'status' => 200,
+            'data' => [ 'token' => $token->plainTextToken ]
+        ] );
     }
 
     /**

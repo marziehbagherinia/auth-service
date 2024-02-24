@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Api\Auth;
+namespace App\Http\Requests\Api\V1\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterRequest extends FormRequest
+class LoginRequest extends FormRequest
 {
 
     /**
@@ -27,7 +27,8 @@ class RegisterRequest extends FormRequest
         return [
             'email'        => [ 'sometimes', 'email', 'required_without:phone_number' ],
             'phone_number' => [ 'sometimes', 'string', 'required_without:email' ],
-            'password'     => [ 'required', 'string' ],
+            'password'     => [ 'required', 'string' ]
         ];
     }
+
 }

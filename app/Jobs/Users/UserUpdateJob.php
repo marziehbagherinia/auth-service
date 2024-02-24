@@ -2,19 +2,26 @@
 
 namespace App\Jobs\Users;
 
-use App\Exceptions\Users\UserNotFoundException;
 use App\Models\Users\User;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Exceptions\Users\UserNotFoundException;
 
 class UserUpdateJob implements ShouldQueue
 {
 
     use Dispatchable, SerializesModels;
 
+    /**
+     * @var
+     */
     private $id;
+
+    /**
+     * @var
+     */
     private $data;
 
     /**
@@ -22,7 +29,7 @@ class UserUpdateJob implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($id, $data)
+    public function __construct( $id, $data )
     {
         $this->id   = $id;
         $this->data = $data;
@@ -30,21 +37,23 @@ class UserUpdateJob implements ShouldQueue
 
     /**
      * @return mixed
-     * @throws \App\Exceptions\Users\UserNotFoundException
+     * @throws UserNotFoundException
      */
-    public function handle()
+    public function handle(): mixed
     {
-        $user = User::where('id', $this->id)->first();
+        $user = User::where( 'id', $this->id )->first();
 
-        if ( ! $user) {
+        if ( !isset( $user ) )
+        {
             throw new UserNotFoundException();
         }
 
-        if (isset($this->data['password'])) {
-            $this->data['password'] = Hash::make($this->data['password']);
+        if ( isset( $this->data[ 'password' ] ) )
+        {
+            $this->data[ 'password' ] = Hash::make( $this->data[ 'password' ] );
         }
 
-        $user->update($this->data);
+        $user->update( $this->data );
 
         return $user;
     }
