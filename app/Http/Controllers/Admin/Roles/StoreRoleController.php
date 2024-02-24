@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Admin\Roles;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\V1\Roles\StoreRoleRequest;
 use App\Jobs\Roles\RoleStoreJob;
 use Illuminate\Http\JsonResponse;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Roles\StoreRoleRequest;
 
 class StoreRoleController extends Controller
 {
     /**
      * Handle the incoming request.
+     *
      * @param StoreRoleRequest $request
      * @return JsonResponse
      */

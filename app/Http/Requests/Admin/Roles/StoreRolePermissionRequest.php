@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Api\V1\Users;
+namespace App\Http\Requests\Admin\Roles;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUserRolesRequest extends FormRequest
+class StoreRolePermissionRequest extends FormRequest
 {
 
     /**
@@ -25,9 +25,7 @@ class StoreUserRolesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'roles'        => [ 'required', 'array' ],
-            'roles.*.name' => [ 'required', 'string' ],
+            'permission_id' => [ 'required', 'int' ],
         ];
     }
-
 }

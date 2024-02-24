@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin\Permissions;
 
-use App\Exceptions\Permissions\PermissionNotFoundException;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Permission;
+use App\Exceptions\Permissions\PermissionNotFoundException;
 
 class ShowPermissionController extends Controller
 {

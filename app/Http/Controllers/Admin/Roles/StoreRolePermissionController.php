@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Roles;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\V1\Roles\StoreRolePermissionRequest;
-use App\Jobs\Roles\RolePermissionStoreJob;
 use Illuminate\Http\JsonResponse;
+use App\Http\Controllers\Controller;
+use App\Jobs\Roles\RolePermissionStoreJob;
+use App\Http\Requests\Admin\Roles\StoreRolePermissionRequest;
 
 class StoreRolePermissionController extends Controller
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Api\V1\Roles;
+namespace App\Http\Requests\Admin\Permissions;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRoleRequest extends FormRequest
+class UpdatePermissionRequest extends FormRequest
 {
 
     /**

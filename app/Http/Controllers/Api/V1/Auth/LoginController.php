@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Api\V1\Auth;
 
-use App\Enums\Users\UserTokenType;
-use App\Exceptions\Users\UserNotFoundException;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\V1\Auth\LoginRequest;
 use App\Models\Users\User;
+use Illuminate\Http\JsonResponse;
+use App\Enums\Users\UserTokenType;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+use App\Exceptions\Users\UserNotFoundException;
+use App\Http\Requests\Api\V1\Auth\LoginRequest;
 
 class LoginController extends Controller
 {
@@ -15,10 +16,10 @@ class LoginController extends Controller
      * Handle the incoming request.
      *
      * @param LoginRequest $request
-     * @return mixed
+     * @return JsonResponse
      * @throws UserNotFoundException
      */
-    public function __invoke( LoginRequest $request ): mixed
+    public function __invoke( LoginRequest $request ): JsonResponse
     {
         $inputs = $request->validated();
 

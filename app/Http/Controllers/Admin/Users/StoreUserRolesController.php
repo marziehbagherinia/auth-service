@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Users;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\V1\Users\StoreUserRolesRequest;
-use App\Jobs\Users\UserRolesStoreJob;
 use Illuminate\Http\JsonResponse;
+use App\Http\Controllers\Controller;
+use App\Jobs\Users\UserRolesStoreJob;
+use App\Http\Requests\Admin\Users\StoreUserRolesRequest;
 
 class StoreUserRolesController extends Controller
 {

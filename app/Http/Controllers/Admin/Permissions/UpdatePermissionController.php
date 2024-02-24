@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Permissions;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\V1\Roles\UpdateRoleRequest;
-use App\Jobs\Permissions\PermissionUpdateJob;
 use Illuminate\Http\JsonResponse;
+use App\Http\Controllers\Controller;
+use App\Jobs\Permissions\PermissionUpdateJob;
+use App\Http\Requests\Admin\Roles\UpdateRoleRequest;
 
 class UpdatePermissionController extends Controller
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Api\V1\Permissions;
+namespace App\Http\Requests\Admin\Users;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePermissionRequest extends FormRequest
+class StoreUserRolesRequest extends FormRequest
 {
 
     /**
@@ -25,7 +25,9 @@ class UpdatePermissionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => [ 'string' ],
+            'roles'        => [ 'required', 'array' ],
+            'roles.*.name' => [ 'required', 'string' ],
         ];
     }
+
 }

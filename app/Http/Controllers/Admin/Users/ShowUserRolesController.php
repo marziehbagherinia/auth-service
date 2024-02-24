@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Users;
 
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use App\Jobs\Users\UserRolesShowJob;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class ShowUserRolesController extends Controller
 {
