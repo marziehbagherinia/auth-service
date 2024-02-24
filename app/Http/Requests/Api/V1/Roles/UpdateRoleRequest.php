@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Api\V1\Auth;
+namespace App\Http\Requests\Api\V1\Roles;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Password;
 
-class ResetPasswordRequest extends FormRequest
+class UpdateRoleRequest extends FormRequest
 {
 
     /**
@@ -13,7 +12,7 @@ class ResetPasswordRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -23,12 +22,10 @@ class ResetPasswordRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            'password' => [ 'required', 'confirmed', Password::min( 6 ) ],
-            'token'    => [ 'required', 'string' ],
+            'name' => [ 'string' ],
         ];
     }
-
 }
