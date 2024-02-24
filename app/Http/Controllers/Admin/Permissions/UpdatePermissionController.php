@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1\Permissions;
+namespace App\Http\Controllers\Admin\Permissions;
 
-use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
-use App\Jobs\Permissions\PermissionUpdateJob;
 use App\Http\Requests\Api\V1\Roles\UpdateRoleRequest;
+use App\Jobs\Permissions\PermissionUpdateJob;
+use Illuminate\Http\JsonResponse;
 
 class UpdatePermissionController extends Controller
 {

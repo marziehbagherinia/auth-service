@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1\Roles;
+namespace App\Http\Controllers\Admin\Roles;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Jobs\Roles\RoleDeleteJob;
 use Illuminate\Http\JsonResponse;
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class DeleteRoleController extends Controller
 {

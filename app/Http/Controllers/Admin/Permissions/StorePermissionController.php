@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1\Permissions;
+namespace App\Http\Controllers\Admin\Permissions;
 
-use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
-use App\Jobs\Permissions\PermissionStoreJob;
 use App\Http\Requests\Api\V1\Roles\StoreRoleRequest;
+use App\Jobs\Permissions\PermissionStoreJob;
+use Illuminate\Http\JsonResponse;
 
 class StorePermissionController extends Controller
 {

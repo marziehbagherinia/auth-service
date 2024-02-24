@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1\Permissions;
+namespace App\Http\Controllers\Admin\Permissions;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
-use App\Http\Controllers\Controller;
-use Spatie\Permission\Models\Permission;
 use App\Exceptions\Permissions\PermissionNotFoundException;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 
 class ShowPermissionController extends Controller
 {

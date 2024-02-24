@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1\Roles;
+namespace App\Http\Controllers\Admin\Roles;
 
-use App\Jobs\Roles\RoleUpdateJob;
-use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\Roles\UpdateRoleRequest;
+use App\Jobs\Roles\RoleUpdateJob;
+use Illuminate\Http\JsonResponse;
 
 class UpdateRoleController extends Controller
 {
